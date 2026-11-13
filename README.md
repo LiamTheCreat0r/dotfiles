@@ -10,7 +10,7 @@ Fedora (aarch64) + Hyprland + Noctalia shell, managed with [chezmoi](https://www
 | `dot_config/hypr/noctalia.lua`, `dot_config/ghostty/themes/noctalia`, `dot_config/btop/themes/noctalia.theme` | Noctalia color templates generated from the wallpaper (run `chezmoi re-add` after changing it) |
 | `dot_config/kitty/` | `~/.config/kitty/kitty.conf` |
 | `dot_config/ghostty/` | `~/.config/ghostty/config.ghostty` |
-| `dot_config/fontconfig/` | `~/.config/fontconfig/fonts.conf` (Inter / JetBrains Mono, unhinted macOS-like rendering) |
+| `dot_config/fontconfig/` | `~/.config/fontconfig/fonts.conf` (Inter / JetBrains Mono, grayscale antialiasing with light autohinting for macOS-like text) |
 | `run_onchange_after_gtk-fonts.sh` | GTK font settings via `gsettings` (re-runs when the script changes) |
 | `Pictures/BG5.png` | `~/Pictures/BG5.png` (Noctalia wallpaper) |
 | `dot_zshrc` | `~/.zshrc` (Oh My Zsh, `robbyrussell` theme, `git` plugin) |
