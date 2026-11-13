@@ -25,13 +25,15 @@ hl.monitor({
 })
 
 -- Built-in MacBook Air M4 panel. With the kernel arg appledrm.show_notch=1 the
--- panel reports its full 2560x1664 and the 64px notch strip (32px at scale 2)
--- becomes usable; Noctalia's bar (thickness 32) sits in it.
+-- panel reports its full 2560x1664 and the 64px notch strip (40px at scale 1.6)
+-- becomes usable; Noctalia's bar (thickness 42) sits in it, slightly taller than the notch.
+-- Valid scales must divide 2560x1664 into whole pixels and be multiples of 1/120:
+-- 2.0, 1.6, 1.3333, 1.0667, 1.0. Others (e.g. 1.8) get rejected.
 hl.monitor({
     output   = "eDP-1",
     mode     = "preferred",
     position = "auto",
-    scale    = 1.6, -- 1600x1000 logical; close to macOS's default "looks like" size
+    scale    = 1.6, -- 1600x1040 logical
 })
 
 

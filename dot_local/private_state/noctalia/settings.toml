@@ -16,7 +16,7 @@ end = [
     "control-center",
     "session"
 ]
-thickness = 32
+thickness = 42
 
 [[control_center.shortcuts]]
 type = "wifi"
