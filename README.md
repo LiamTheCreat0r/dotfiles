@@ -7,6 +7,7 @@ Fedora (aarch64) + Hyprland + Noctalia shell, managed with [chezmoi](https://www
 | `dot_config/hypr/` | `~/.config/hypr/` (Lua config `hyprland.lua`, HyprMod `hyprland-gui.lua`, legacy `hyprland.conf`) |
 | `dot_local/state/noctalia/settings.toml` | `~/.local/state/noctalia/settings.toml` |
 | `dot_config/noctalia-plugins/` | `~/.config/noctalia-plugins/` (local `kbd-backlight` plugin) |
+| `dot_config/hypr/noctalia.lua`, `dot_config/ghostty/themes/noctalia`, `dot_config/btop/themes/noctalia.theme` | Noctalia color templates generated from the wallpaper (run `chezmoi re-add` after changing it) |
 | `dot_config/kitty/` | `~/.config/kitty/kitty.conf` |
 | `dot_config/ghostty/` | `~/.config/ghostty/config.ghostty` |
 | `Pictures/BG5.png` | `~/Pictures/BG5.png` (Noctalia wallpaper) |

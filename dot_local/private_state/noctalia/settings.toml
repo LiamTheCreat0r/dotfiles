@@ -104,6 +104,9 @@ community_palette = "Oxocarbon"
 mode = "dark"
 source = "wallpaper"
 
+    [theme.templates]
+    builtin_ids = [ "btop", "ghostty", "hyprland" ]
+
 [wallpaper.default]
 path = "/home/thecreator/Pictures/BG5.png"
 
