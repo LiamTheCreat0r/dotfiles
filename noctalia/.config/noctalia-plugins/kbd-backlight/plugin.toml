@@ -1,0 +1,29 @@
+# Keyboard backlight slider for the noctalia bar (Apple Silicon: /sys/class/leds/kbd_backlight).
+id = "local/kbd-backlight"
+name = "Keyboard Backlight"
+version = "1.0.0"
+plugin_api = 43
+author = "local"
+license = "MIT"
+dependencies = []
+tags = ["keyboard", "backlight"]
+icon = "keyboard"
+description = "Bar widget with a slider for the keyboard backlight. Click for slider, scroll to adjust, right-click to toggle."
+
+[[widget]]
+id = "bar"
+entry = "bar.luau"
+
+[[panel]]
+id = "panel"
+entry = "panel.luau"
+width = 300
+height = 110
+placement = "attached"
+position = "auto"
+open_near_click = true
+
+# Control-center tile: click = on/off, right-click = slider panel.
+[[shortcut]]
+id = "tile"
+entry = "tile.luau"
