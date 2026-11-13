@@ -31,7 +31,7 @@ hl.monitor({
     output   = "eDP-1",
     mode     = "preferred",
     position = "auto",
-    scale    = 2,
+    scale    = 1.6, -- 1600x1000 logical; close to macOS's default "looks like" size
 })
 
 
@@ -383,10 +383,12 @@ hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.fullscreen({ mode = "maximized",
 -- Fullscreen - Window takes up the entire screen.
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
 
+-- Screenshots on Ctrl+Option+3/4 (MacBook keyboards have no Print key).
+-- Bound by keycode for AZERTY: code:12 = key "3", code:13 = key "4".
 -- Screenshot a monitor
-hl.bind("PRINT", hl.dsp.exec_cmd(ipc .. "screenshot-fullscreen pick"))
+hl.bind("CTRL + ALT + code:12", hl.dsp.exec_cmd(ipc .. "screenshot-fullscreen pick"))
 -- Screenshot a region
-hl.bind(mainMod .. " +  PRINT", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
+hl.bind("CTRL + ALT + code:13", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
 
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))

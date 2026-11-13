@@ -1,7 +1,6 @@
 config_version = 16
 
 [bar.default]
-thickness = 32
 center = []
 end = [
     "clock",
@@ -17,6 +16,7 @@ end = [
     "control-center",
     "session"
 ]
+thickness = 32
 
 [[control_center.shortcuts]]
 type = "wifi"
@@ -111,7 +111,7 @@ mode = "dark"
 source = "wallpaper"
 
     [theme.templates]
-    builtin_ids = [ "btop", "ghostty", "hyprland" ]
+    builtin_ids = [ "btop", "hyprland", "kitty" ]
 
 [wallpaper.default]
 path = "/home/thecreator/Pictures/BG5.png"
