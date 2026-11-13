@@ -253,8 +253,12 @@ hl.config({
         -- that start while you're typing (only for a moment, so the cursor still
         -- moves as soon as you pause), and libinput rejects large contacts as
         -- palms (threshold in system/etc/libinput/local-overrides.quirks).
+        -- (input.natural_scroll above only affects mice; touchpads use this block.)
+        -- disable_while_typing doesn't count Cmd/Ctrl/Alt combos, so Cmd+click
+        -- still works. Set it to false if it gets in the way (e.g. gaming).
         touchpad = {
             natural_scroll       = true,  -- macOS "natural" scrolling
+            scroll_factor        = 0.2,   -- slower two-finger scrolling (1.0 = default)
             disable_while_typing = true,
             tap_to_click         = false, -- macOS default: press to click
             clickfinger_behavior = true,  -- two-finger click = right click, anywhere on the pad
@@ -459,24 +463,6 @@ hl.window_rule({
 
     move  = "20 monitor_h-120",
     float = true,
-})
-
--- Touchpad (Apple MTP multi-touch): mac-style "natural" scrolling.
--- input.natural_scroll only affects mice; touchpads have their own option.
-hl.config({
-    input = {
-        touchpad = {
-            natural_scroll = true,
-            -- Slower two-finger scrolling (1.0 = default)
-            scroll_factor = 0.2,
-            -- Click with 1 finger = left, 2 fingers = right, 3 = middle (mac-style)
-            clickfinger_behavior = true,
-            -- No tap-to-click: only physical clicks count (libinput can't disable 2-finger tap alone)
-            tap_to_click = false,
-            -- Keep the touchpad working while typing (Cmd+click, gaming, etc.)
-            disable_while_typing = false,
-        },
-    },
 })
 
 -- HyprMod managed settings
