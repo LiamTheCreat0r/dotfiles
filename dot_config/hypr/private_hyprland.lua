@@ -72,6 +72,11 @@ end)
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 
+-- FreeType stem darkening: thickens thin glyph stems at small sizes, the way
+-- macOS renders text. Applies to TrueType fonts through the autohinter, which
+-- fontconfig enables (autohint + hintslight). Restart apps to pick it up.
+hl.env("FREETYPE_PROPERTIES", "cff:no-stem-darkening=0 autofitter:no-stem-darkening=0 type1:no-stem-darkening=0 t1cid:no-stem-darkening=0")
+
 
 -----------------------
 ----- PERMISSIONS -----
