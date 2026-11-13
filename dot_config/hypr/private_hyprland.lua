@@ -69,13 +69,14 @@ end)
 
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
-hl.env("XCURSOR_SIZE", "24")
-hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("XCURSOR_SIZE", "30")
+hl.env("HYPRCURSOR_SIZE", "30")
 
 -- App-level UI scale on top of the 1.6 monitor scale. The panel can't do a
 -- compositor scale between 1.6 and 2.0, so apps scale themselves by 1.125
 -- (effective ~1.8). GTK uses gsettings text-scaling-factor (run_onchange_after_gtk-fonts.sh),
 -- terminals use bigger font sizes, Noctalia's bar uses bar.default.scale.
+-- The cursor above is 30: the nearest Adwaita size to 24 × 1.125, so it stays sharp.
 hl.env("QT_SCALE_FACTOR", "1.125")
 
 -- FreeType stem darkening: thickens thin glyph stems at small sizes, the way
