@@ -319,6 +319,18 @@ hl.bind(mainMod .. " + code:55", hl.dsp.send_shortcut({ mods = "SHIFT", key = "I
 hl.bind(mainMod .. " + code:53", hl.dsp.send_shortcut({ mods = "CTRL",  key = "X" }))
 -- Cmd+A = select all. code:24 = physical key labelled A on AZERTY (QWERTY "Q" position)
 hl.bind(mainMod .. " + code:24", hl.dsp.send_shortcut({ mods = "CTRL",  key = "A" }))
+-- Cmd+W = close the current tab, mac-style (not the window). code:52 = physical W on AZERTY.
+-- Most apps close a tab on Ctrl+W, but in a terminal that's "delete word", so kitty
+-- gets Ctrl+Shift+W instead (kitty's default close_window: closes the split, and the
+-- tab with it when it's the last one).
+hl.bind(mainMod .. " + code:52", function()
+    local win = hl.get_active_window()
+    if win and win.class == "kitty" then
+        hl.dispatch(hl.dsp.send_shortcut({ mods = "CTRL SHIFT", key = "W" }))
+    else
+        hl.dispatch(hl.dsp.send_shortcut({ mods = "CTRL", key = "W" }))
+    end
+end)
 -- Cmd+Backspace = delete previous word
 hl.bind(mainMod .. " + BackSpace", hl.dsp.send_shortcut({ mods = "CTRL", key = "BackSpace" }), { repeating = true })
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
