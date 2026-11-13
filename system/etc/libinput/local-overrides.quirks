@@ -1,9 +1,19 @@
-# Stricter palm rejection for the MacBook trackpad (Asahi "Apple MTP multi-touch").
-# Contacts larger than AttrPalmSizeThreshold are treated as palms and ignored.
-# libinput ships 1600; lower = more aggressive. Tune with:
-#   sudo libinput measure touch-size --touch-thresholds=150:130 --palm-threshold=1000
+# Stricter palm rejection for the MacBook trackpad (Asahi "Apple MTP multi-touch",
+# bus 0x19). libinput's stock Apple quirks only match USB/Bluetooth, so without
+# this file size-based palm detection is off entirely for the built-in pad.
+#
+# AttrPalmSizeThreshold: contacts with a touch major above this are palms and ignored.
+# AttrThumbSizeThreshold: contacts above this are thumbs (ignored for gestures/pointer
+#   when resting in the lower part of the pad). Must be below the palm threshold.
+# libinput ships 900/800 for the Magic Trackpad 2; these are stricter. Lower = more
+# aggressive; too low and normal fingers get dropped. Tune with:
+#   sudo libinput measure touch-size --touch-thresholds=150:130 --palm-threshold=800
+#
+# Install: sudo install -Dm644 system/etc/libinput/local-overrides.quirks /etc/libinput/
+# Takes effect when Hyprland restarts (log out and back in).
 [Apple Laptop Touchpad (MTP) palm]
 MatchUdevType=touchpad
 MatchName=Apple*MTP*
 MatchVendor=0x05AC
-AttrPalmSizeThreshold=1000
+AttrPalmSizeThreshold=800
+AttrThumbSizeThreshold=650
