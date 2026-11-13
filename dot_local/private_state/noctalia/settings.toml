@@ -1,7 +1,10 @@
 config_version = 16
 
 [bar.default]
+thickness = 32
+center = []
 end = [
+    "clock",
     "media",
     "tray",
     "notifications",
@@ -35,6 +38,9 @@ type = "power_profile"
 
 [[control_center.shortcuts]]
 type = "local/kbd-backlight:tile"
+
+[desktop_widgets]
+enabled = false
 
 [lockscreen_widgets]
 enabled = false

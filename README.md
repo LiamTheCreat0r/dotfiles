@@ -22,6 +22,16 @@ chezmoi init --apply LiamTheCreat0r
 chsh -s /usr/bin/zsh
 ```
 
+## System setup (needs sudo, not managed by chezmoi)
+
+`system/` mirrors files outside `$HOME` and is ignored by chezmoi. On a new machine, and after changing anything in it:
+
+```sh
+sudo dnf install jetbrains-mono-fonts-all                                       # Ghostty font
+sudo install -Dm644 system/etc/libinput/local-overrides.quirks /etc/libinput/   # trackpad palm rejection
+sudo grubby --update-kernel=ALL --args=appledrm.show_notch=1                     # use the notch area (reboot)
+```
+
 ## Using this checkout as the source
 
 ```sh

@@ -24,6 +24,16 @@ hl.monitor({
     scale    = "auto",
 })
 
+-- Built-in MacBook Air M4 panel. With the kernel arg appledrm.show_notch=1 the
+-- panel reports its full 2560x1664 and the 64px notch strip (32px at scale 2)
+-- becomes usable; Noctalia's bar (thickness 32) sits in it.
+hl.monitor({
+    output   = "eDP-1",
+    mode     = "preferred",
+    position = "auto",
+    scale    = 2,
+})
+
 
 ---------------------
 ---- MY PROGRAMS ----
@@ -90,7 +100,7 @@ hl.config({
         gaps_in  = 5,
         gaps_out = 20,
 
-        border_size = 2,
+        border_size = 1,
 
         col = {
             active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
@@ -239,8 +249,17 @@ hl.config({
 
         sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
 
+        -- macOS-like trackpad. Palm rejection: disable_while_typing ignores touches
+        -- that start while you're typing (only for a moment, so the cursor still
+        -- moves as soon as you pause), and libinput rejects large contacts as
+        -- palms (threshold in system/etc/libinput/local-overrides.quirks).
         touchpad = {
-            natural_scroll = false,
+            natural_scroll       = true,  -- macOS "natural" scrolling
+            disable_while_typing = true,
+            tap_to_click         = false, -- macOS default: press to click
+            clickfinger_behavior = true,  -- two-finger click = right click, anywhere on the pad
+            tap_and_drag         = false,
+            middle_button_emulation = false,
         },
     },
 })

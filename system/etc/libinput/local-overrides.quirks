@@ -1,0 +1,9 @@
+# Stricter palm rejection for the MacBook trackpad (Asahi "Apple MTP multi-touch").
+# Contacts larger than AttrPalmSizeThreshold are treated as palms and ignored.
+# libinput ships 1600; lower = more aggressive. Tune with:
+#   sudo libinput measure touch-size --touch-thresholds=150:130 --palm-threshold=1000
+[Apple Laptop Touchpad (MTP) palm]
+MatchUdevType=touchpad
+MatchName=Apple*MTP*
+MatchVendor=0x05AC
+AttrPalmSizeThreshold=1000
