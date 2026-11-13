@@ -25,15 +25,15 @@ hl.monitor({
 })
 
 -- Built-in MacBook Air M4 panel. With the kernel arg appledrm.show_notch=1 the
--- panel reports its full 2560x1664 and the 64px notch strip (32px at scale 2.0)
--- becomes usable; Noctalia's bar (thickness 34) sits in it, slightly taller than the notch.
+-- panel reports its full 2560x1664 and the 64px notch strip (40px at scale 1.6)
+-- becomes usable; Noctalia's bar (thickness 42) sits in it, slightly taller than the notch.
 -- Valid scales must divide 2560x1664 into whole pixels and be multiples of 1/120:
 -- 2.0, 1.6, 1.3333, 1.0667, 1.0. Others (e.g. 1.8) get rejected.
 hl.monitor({
     output   = "eDP-1",
     mode     = "preferred",
     position = "auto",
-    scale    = 2.0, -- 1280x832 logical
+    scale    = 1.6, -- 1600x1040 logical
 })
 
 
@@ -71,6 +71,12 @@ end)
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+
+-- App-level UI scale on top of the 1.6 monitor scale. The panel can't do a
+-- compositor scale between 1.6 and 2.0, so apps scale themselves by 1.125
+-- (effective ~1.8). GTK uses gsettings text-scaling-factor (run_onchange_after_gtk-fonts.sh),
+-- terminals use bigger font sizes, Noctalia's bar uses bar.default.scale.
+hl.env("QT_SCALE_FACTOR", "1.125")
 
 -- FreeType stem darkening: thickens thin glyph stems at small sizes, the way
 -- macOS renders text. Applies to TrueType fonts through the autohinter, which

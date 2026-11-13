@@ -8,3 +8,4 @@ gsettings set org.gnome.desktop.interface document-font-name  'Inter 10'
 gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrains Mono 10'
 gsettings set org.gnome.desktop.interface font-antialiasing   'grayscale'
 gsettings set org.gnome.desktop.interface font-hinting        'slight'
+gsettings set org.gnome.desktop.interface text-scaling-factor 1.125

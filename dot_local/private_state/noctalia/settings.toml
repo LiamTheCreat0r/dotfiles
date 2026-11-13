@@ -4,7 +4,8 @@ config_version = 16
 center = []
 end = [ "tray", "network", "bluetooth", "volume", "battery", "clock", "date", "session" ]
 start = [ "control-center", "workspaces" ]
-thickness = 34
+scale = 1.125
+thickness = 42
 widget_spacing = 12
 
 [[control_center.shortcuts]]

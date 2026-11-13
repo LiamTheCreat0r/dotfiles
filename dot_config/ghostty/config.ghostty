@@ -52,9 +52,9 @@
 # resize-overlay-duration = 4s 200ms
 theme = noctalia
 
-# Font: JetBrains Mono, 14pt, heavier weights
+# Font: JetBrains Mono, 15.75pt (14 × 1.125 app scale), heavier weights
 font-family = JetBrains Mono
-font-size = 14
+font-size = 15.75
 font-variation = wght=700
 font-variation-bold = wght=800
 
