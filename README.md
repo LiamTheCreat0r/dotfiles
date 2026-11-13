@@ -10,12 +10,15 @@ Fedora (aarch64) + Hyprland + Noctalia shell, managed with [chezmoi](https://www
 | `dot_config/kitty/` | `~/.config/kitty/kitty.conf` |
 | `dot_config/ghostty/` | `~/.config/ghostty/config.ghostty` |
 | `Pictures/BG5.png` | `~/Pictures/BG5.png` (Noctalia wallpaper) |
+| `dot_zshrc` | `~/.zshrc` (Oh My Zsh, `robbyrussell` theme, `git` plugin) |
+| `.chezmoiexternal.toml` | `~/.oh-my-zsh/` (cloned from GitHub, pulled weekly by `chezmoi apply`) |
 
 ## New machine
 
 ```sh
-sudo dnf install chezmoi
+sudo dnf install chezmoi git zsh
 chezmoi init --apply LiamTheCreat0r
+chsh -s /usr/bin/zsh
 ```
 
 ## Using this checkout as the source
