@@ -1,0 +1,9 @@
+/* Discord ships its own web font (gg sans), which fontconfig can't touch.
+   Use the system fonts instead, so text gets Inter (the SF Pro stand-in) and
+   fontconfig's Regular -> Medium bump. */
+:root {
+  --font-primary: "Inter", sans-serif !important;
+  --font-display: "Inter", sans-serif !important;
+  --font-headline: "Inter", sans-serif !important;
+  --font-code: "JetBrains Mono", monospace !important;
+}
