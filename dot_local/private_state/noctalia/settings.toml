@@ -2,21 +2,10 @@ config_version = 16
 
 [bar.default]
 center = []
-end = [
-    "clock",
-    "media",
-    "tray",
-    "notifications",
-    "clipboard",
-    "network",
-    "bluetooth",
-    "volume",
-    "brightness",
-    "battery",
-    "control-center",
-    "session"
-]
+end = [ "tray", "network", "bluetooth", "volume", "battery", "clock", "date", "session" ]
+start = [ "control-center", "workspaces" ]
 thickness = 42
+widget_spacing = 12
 
 [[control_center.shortcuts]]
 type = "wifi"
@@ -121,3 +110,35 @@ path = "/home/thecreator/Pictures/BG5.png"
 
 [wallpaper.monitors.eDP-1]
 path = "/home/thecreator/Pictures/BG5.png"
+
+[widget.battery]
+display_mode = "graphic"
+scale = 1.0
+
+[widget.bluetooth]
+scale = 1.4
+
+[widget.control-center]
+scale = 1.4
+
+[widget.network]
+scale = 1.4
+show_label = false
+
+[widget.session]
+scale = 1.4
+
+[widget.tray]
+scale = 1.4
+
+[widget.volume]
+scale = 1.4
+show_label = false
+
+[widget.workspaces]
+scale = 1.4
+active_pill_size = 1.0
+empty_color = "#00000000"
+inactive_pill_size = 1.0
+occupied_color = "#00000000"
+style = "regular"
