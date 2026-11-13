@@ -256,17 +256,15 @@ hl.config({
 
         sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
 
-        -- macOS-like trackpad. Palm rejection: disable_while_typing ignores touches
-        -- that start while you're typing (only for a moment, so the cursor still
-        -- moves as soon as you pause), and libinput rejects large contacts as
+        -- macOS-like trackpad. Palm rejection: libinput rejects large contacts as
         -- palms (threshold in system/etc/libinput/local-overrides.quirks).
+        -- disable_while_typing is off so the trackpad stays live while typing;
+        -- set it to true to ignore touches that start mid-typing.
         -- (input.natural_scroll above only affects mice; touchpads use this block.)
-        -- disable_while_typing doesn't count Cmd/Ctrl/Alt combos, so Cmd+click
-        -- still works. Set it to false if it gets in the way (e.g. gaming).
         touchpad = {
             natural_scroll       = true,  -- macOS "natural" scrolling
-            scroll_factor        = 0.2,   -- slower two-finger scrolling (1.0 = default)
-            disable_while_typing = true,
+            scroll_factor        = 0.12,  -- slower two-finger scrolling (1.0 = default)
+            disable_while_typing = false,
             tap_to_click         = false, -- macOS default: press to click
             clickfinger_behavior = true,  -- two-finger click = right click, anywhere on the pad
             tap_and_drag         = false,
