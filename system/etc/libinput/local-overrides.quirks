@@ -9,7 +9,7 @@
 # aggressive; too low and normal fingers get dropped. Tune with:
 #   sudo libinput measure touch-size --touch-thresholds=150:130 --palm-threshold=800
 #
-# Install: sudo install -Dm644 system/etc/libinput/local-overrides.quirks /etc/libinput/
+# Install: sudo install -Dm644 system/etc/libinput/local-overrides.quirks /etc/libinput/local-overrides.quirks
 # Takes effect when Hyprland restarts (log out and back in).
 [Apple Laptop Touchpad (MTP) palm]
 MatchUdevType=touchpad

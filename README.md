@@ -31,7 +31,7 @@ chsh -s /usr/bin/zsh
 
 ```sh
 sudo dnf install jetbrains-mono-fonts-all rsms-inter-vf-fonts                   # terminal + UI fonts
-sudo install -Dm644 system/etc/libinput/local-overrides.quirks /etc/libinput/   # trackpad palm rejection
+sudo install -Dm644 system/etc/libinput/local-overrides.quirks /etc/libinput/local-overrides.quirks   # trackpad palm rejection
 sudo grubby --update-kernel=ALL --args=appledrm.show_notch=1                     # use the notch area (reboot)
 ```
 
