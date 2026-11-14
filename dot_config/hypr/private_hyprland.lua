@@ -310,6 +310,8 @@ hl.bind(mainMod .. " + SHIFT + C", hl.dsp.window.kill())
 hl.bind(mainMod .. " + code:38", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
+-- File manager on Cmd+N (opens floating, see window rule below). code:57 = physical N key
+hl.bind(mainMod .. " + code:57", hl.dsp.exec_cmd(fileManager .. " --new-window"))
 -- Browser on Cmd+B. code:56 = physical B key, layout-independent
 hl.bind(mainMod .. " + code:56", hl.dsp.exec_cmd(browser))
 -- Toggle floating (moved off Cmd+V, which is now paste). code:28 = T
@@ -336,8 +338,17 @@ hl.bind(mainMod .. " + code:52", function()
         hl.dispatch(hl.dsp.send_shortcut({ mods = "CTRL", key = "W" }))
     end
 end)
--- Cmd+Backspace = delete previous word
-hl.bind(mainMod .. " + BackSpace", hl.dsp.send_shortcut({ mods = "CTRL", key = "BackSpace" }), { repeating = true })
+-- Cmd+Backspace = move selected files to trash in file managers (sends Delete),
+-- delete previous word everywhere else
+local fileManagerClasses = { ["org.gnome.Nautilus"] = true, ["org.kde.dolphin"] = true }
+hl.bind(mainMod .. " + BackSpace", function()
+    local win = hl.get_active_window()
+    if win and fileManagerClasses[win.class] then
+        hl.dispatch(hl.dsp.send_shortcut({ mods = "", key = "Delete" }))
+    else
+        hl.dispatch(hl.dsp.send_shortcut({ mods = "CTRL", key = "BackSpace" }))
+    end
+end, { repeating = true })
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
 -- App launcher on Cmd+Space, mac-style
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
@@ -492,6 +503,14 @@ hl.window_rule({
     match = { class = "hyprland-run" },
 
     move  = "20 monitor_h-120",
+    float = true,
+})
+
+-- Dolphin opens floating
+hl.window_rule({
+    name  = "float-dolphin",
+    match = { class = "^org\\.kde\\.dolphin$" },
+
     float = true,
 })
 
